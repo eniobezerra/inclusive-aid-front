@@ -3,78 +3,122 @@
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { OnboardingRedirect } from "@/components/onboarding/OnboardingRedirect";
+import { cn } from "@/lib/utils";
 
 export default function HomePage() {
   const router = useRouter();
 
   return (
     <OnboardingRedirect>
-      <div className="min-h-screen flex flex-col items-center justify-center p-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center space-y-8 max-w-2xl"
-        >
-          <h1 className="text-5xl font-bold">
-            Bem-vindo ao{" "}
-            <span className="text-primary">InclusiveAID</span>
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Uma plataforma inclusiva que ajuda pessoas com deficiência a
-            navegar e interagir com o mundo digital de forma mais acessível e
-            independente.
-          </p>
+      <div className="flex min-h-screen flex-col">
+        {/* Hero Section */}
+        <section className="flex-1 flex items-center justify-center px-4 py-16 md:py-24">
+          <div className="container">
+            <div className="mx-auto max-w-3xl text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="space-y-8"
+              >
+                <div className="space-y-4">
+                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+                    Bem-vindo ao{" "}
+                    <span className="text-primary">InclusiveAID</span>
+                  </h1>
+                  <p className="text-xl text-muted-foreground sm:text-2xl">
+                    Uma plataforma inclusiva que ajuda pessoas com deficiência a
+                    navegar e interagir com o mundo digital de forma mais acessível e
+                    independente.
+                  </p>
+                </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => router.push("/onboarding")}
-              className="p-4 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-            >
-              Começar Agora
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => router.push("/about")}
-              className="p-4 rounded-lg border border-input hover:bg-accent transition-colors"
-            >
-              Saiba Mais
-            </motion.button>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-3 mt-12">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🎯</span>
-              </div>
-              <h3 className="font-semibold mb-2">Acessibilidade</h3>
-              <p className="text-sm text-muted-foreground">
-                Recursos adaptados para diferentes necessidades
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🤝</span>
-              </div>
-              <h3 className="font-semibold mb-2">Inclusão</h3>
-              <p className="text-sm text-muted-foreground">
-                Plataforma pensada para todos os usuários
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💡</span>
-              </div>
-              <h3 className="font-semibold mb-2">Inovação</h3>
-              <p className="text-sm text-muted-foreground">
-                Tecnologias assistivas de ponta
-              </p>
+                <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => router.push("/onboarding")}
+                    className={cn(
+                      "inline-flex h-12 items-center justify-center rounded-lg px-8",
+                      "bg-primary text-primary-foreground hover:bg-primary/90",
+                      "transition-colors focus-visible:outline-none focus-visible:ring-2",
+                      "focus-visible:ring-primary focus-visible:ring-offset-2"
+                    )}
+                  >
+                    Começar Agora
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => router.push("/about")}
+                    className={cn(
+                      "inline-flex h-12 items-center justify-center rounded-lg px-8",
+                      "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+                      "transition-colors focus-visible:outline-none focus-visible:ring-2",
+                      "focus-visible:ring-primary focus-visible:ring-offset-2"
+                    )}
+                  >
+                    Saiba Mais
+                  </motion.button>
+                </div>
+              </motion.div>
             </div>
           </div>
-        </motion.div>
+        </section>
+
+        {/* Features Section */}
+        <section className="border-t bg-muted/5 py-16 md:py-24">
+          <div className="container">
+            <div className="mx-auto max-w-3xl">
+              <div className="grid gap-8 sm:grid-cols-3">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="mb-4 rounded-full bg-primary/10 p-3">
+                    <span className="text-2xl">🎯</span>
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold">Acessibilidade</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Recursos adaptados para diferentes necessidades
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="mb-4 rounded-full bg-primary/10 p-3">
+                    <span className="text-2xl">🤝</span>
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold">Inclusão</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Plataforma pensada para todos os usuários
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="mb-4 rounded-full bg-primary/10 p-3">
+                    <span className="text-2xl">💡</span>
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold">Inovação</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Tecnologias assistivas de ponta
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </OnboardingRedirect>
   );
