@@ -1,5 +1,9 @@
 {
+  "/_not-found": "app/_not-found.js",
   "/page": "app/page.js",
-  "/onboarding/disability/page": "app/onboarding/disability/page.js",
-  "/onboarding/page": "app/onboarding/page.js"
+  "/onboarding/accessibility/page": "app/onboarding/accessibility/page.js",
+  "/onboarding/complete/page": "app/onboarding/complete/page.js",
+  "/onboarding/page": "app/onboarding/page.js",
+  "/onboarding/preferences/page": "app/onboarding/preferences/page.js",
+  "/onboarding/disability/page": "app/onboarding/disability/page.js"
 }
